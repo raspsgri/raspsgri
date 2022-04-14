@@ -36,13 +36,28 @@ class Project:
         print(x)
 
 
+class Employee(Project):
+    def __init__(self, first, last):
+        #super().__init__(self, index, name)
+        self.first = first
+        self.last = last
+        self.email = first + '_' + last + '@raspsgri.com'
+
+    @classmethod
+    def emp_creator(cls, emp_str):
+        first, last = emp_str.split('_')
+        return cls(first, last)
+
+
 Project.num_changer(1)
 Project.c_progress_changer(1.09)
 
 str_one = '0_tiwa'
 str_two = '1_fdsi'
+str_three = 'ras_psgri'
 project_1 = Project.creator(str_one)
 project_2 = Project.creator(str_two)
+employee_1 = Employee.emp_creator(str_three)
 
 project_1.o_progress_changer(43)
 project_2.o_progress_changer(23)
@@ -52,3 +67,4 @@ project_2.show_availability()
 Project.printer(project_1.full_info())
 Project.printer(project_2.full_info())
 Project.printer(Project.num_of_projects)
+print(employee_1.first)
