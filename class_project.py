@@ -26,12 +26,20 @@ class Project:
     def c_progress_changer(cls, amount):
         cls.progress = amount
 
+    @classmethod
+    def creator(cls, prj_str):
+        index, name = prj_str.split('_')
+        return cls(index, name)
+
 
 Project.num_changer(1)
-Project.c_progress_changer(3)
+Project.c_progress_changer(1.09)
 
-project_1 = Project(0, 'tiwa')
-project_2 = Project(1, 'fdsi')
+one = '0_tiwa'
+two = '1_fdsi'
+
+project_1 = Project.creator(one)
+project_2 = Project.creator(two)
 
 project_1.o_progress_changer(43)
 project_2.o_progress_changer(23)
