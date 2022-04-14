@@ -31,21 +31,24 @@ class Project:
         index, name = prj_str.split('_')
         return cls(index, name)
 
+    @staticmethod
+    def printer(x):
+        print(x)
+
 
 Project.num_changer(1)
 Project.c_progress_changer(1.09)
 
-one = '0_tiwa'
-two = '1_fdsi'
-
-project_1 = Project.creator(one)
-project_2 = Project.creator(two)
+str_one = '0_tiwa'
+str_two = '1_fdsi'
+project_1 = Project.creator(str_one)
+project_2 = Project.creator(str_two)
 
 project_1.o_progress_changer(43)
 project_2.o_progress_changer(23)
 project_1.show_availability()
 project_2.show_availability()
 
-print(project_1.full_info())
-print(project_2.full_info())
-print('number of projects: ', Project.num_of_projects)
+Project.printer(project_1.full_info())
+Project.printer(project_2.full_info())
+Project.printer(Project.num_of_projects)
